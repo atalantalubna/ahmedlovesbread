@@ -1,10 +1,10 @@
 {
   "products": [
-    { "name": "\"Ahmed Loves Bread\" Tee", "price": "$28.00", "category": "Apparel", "badge": "Bestseller", "icon": "👕", "buy_url": "", "desc": "Soft, pre-shrunk cotton with a subtle bread print. Unisex fit." },
-    { "name": "Crusty Dad Hat", "price": "$25.00", "category": "Hats", "badge": "", "icon": "🧢", "buy_url": "", "desc": "Structured cotton dad hat with an embroidered loaf." },
-    { "name": "Loaf Life Canvas Tote", "price": "$18.00", "category": "Accessories", "badge": "New", "icon": "🧴", "buy_url": "", "desc": "Heavy canvas tote, farmers-market approved." },
-    { "name": "Toast Mode Mug", "price": "$16.00", "category": "Drinkware", "badge": "", "icon": "☕", "buy_url": "", "desc": "11oz ceramic mug for your morning carbs." },
-    { "name": "Warm & Toasty Socks", "price": "$14.00", "category": "Apparel", "badge": "", "icon": "🧦", "buy_url": "", "desc": "Cozy crew socks with tiny toast." },
-    { "name": "Enamel Bread Pin", "price": "$10.00", "category": "Accessories", "badge": "Limited", "icon": "🎗️", "buy_url": "", "desc": "Hard enamel loaf pin for your tote or jacket." }
+    { "name": "Logo Tee", "price": "$28.00", "category": "Apparel", "badge": "Bestseller", "icon": "👕", "buy_url": "", "desc": "Soft, pre-shrunk cotton. Unisex fit." },
+    { "name": "Dad Hat", "price": "$25.00", "category": "Hats", "badge": "", "icon": "🧢", "buy_url": "", "desc": "Structured cotton dad hat with embroidered logo." },
+    { "name": "Canvas Tote", "price": "$18.00", "category": "Accessories", "badge": "New", "icon": "🧴", "buy_url": "", "desc": "Heavy canvas tote for everyday carry." },
+    { "name": "Ceramic Mug", "price": "$16.00", "category": "Drinkware", "badge": "", "icon": "☕", "buy_url": "", "desc": "11oz ceramic mug." },
+    { "name": "Crew Socks", "price": "$14.00", "category": "Apparel", "badge": "", "icon": "🧦", "buy_url": "", "desc": "Cozy cotton crew socks." },
+    { "name": "Enamel Pin", "price": "$10.00", "category": "Accessories", "badge": "Limited", "icon": "🎗️", "buy_url": "", "desc": "Hard enamel pin for your tote or jacket." }
   ]
 }
