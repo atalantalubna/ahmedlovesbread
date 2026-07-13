@@ -661,7 +661,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
           </ul>
           <p id="sdDesc" style="color:var(--muted);margin-bottom:24px"></p>
           <div class="sd-actions">
-            <a class="btn big" id="sdTicket" target="_blank" rel="noopener">Get Tickets</a>
+            <a class="btn big" id="sdTicket" target="_blank" rel="noopener">Buy Tickets</a>
           </div>
         </div>
       </div>
@@ -774,7 +774,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
     d.onclick=function(){openShow(sh.id);};
     d.innerHTML='<div class="date"><div class="m">'+f.m+'</div><div class="d">'+f.d+'</div></div>'+
       '<div class="info"><h3>'+esc(sh.name)+'</h3><div class="venue">'+esc([sh.venue,sh.city].filter(Boolean).join(' · '))+'</div>'+
-      (sh.time?'<span class="time">🕗 '+esc(sh.time)+'</span>':'')+'</div><div class="go">Details →</div>';
+      (sh.time?'<span class="time">🕗 '+esc(sh.time)+'</span>':'')+'</div><div class="go">Get Tickets →</div>';
     return d;
   }
   function renderTour(){
@@ -802,7 +802,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
     setRow('sdLineupRow',s.lineup?('Lineup: '+s.lineup):'');
     document.getElementById('sdDesc').textContent=s.desc||'';
     var t=document.getElementById('sdTicket');
-    if(s.ticket_url){t.style.display='';t.href=s.ticket_url;t.textContent='🎟 '+(s.button_label||'Get Tickets');}else{t.style.display='none';}
+    if(s.ticket_url){t.style.display='';t.href=s.ticket_url;t.textContent='🎟 Buy Tickets';}else{t.style.display='none';}
     document.getElementById('sdFlyer').innerHTML=s.flyer?('<img src="'+s.flyer+'" alt="'+esc(s.name)+'" onerror="this.parentNode.innerHTML=\'🎤<br>'+esc(s.name).replace(/'/g,"")+'\'">'):('🎤<br>'+esc(s.name));
     go('show');
   }
