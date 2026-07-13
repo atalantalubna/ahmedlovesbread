@@ -1,6 +1,13 @@
+# --- Backend: GitHub (for Cloudflare Pages / any non-Netlify host) ---
+# Decap needs a small OAuth helper to log in with GitHub. On Cloudflare that's the
+# Worker included in this bundle under /cms-oauth-worker. After deploying it, put its
+# URL in base_url below and replace OWNER/REPO with your GitHub repo.
 backend:
-  name: git-gateway
+  name: github
+  repo: atalantalubna/ahmedlovesbread
   branch: main
+  base_url: https://ahmedlovesbread-oauth.lubna.workers.dev
+  auth_endpoint: /auth
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
@@ -16,10 +23,10 @@ collections:
           - label: "Shows"
             name: "shows"
             widget: "list"
-            summary: "{{fields.date}} — {{fields.name}}"
+            summary: "{{fields.date}} - {{fields.name}}"
             fields:
               - { label: "Show name", name: "name", widget: "string" }
-              - { label: "Date", name: "date", widget: "string", hint: "Format: YYYY-MM-DD (e.g. 2026-11-14)" }
+              - { label: "Date (YYYY-MM-DD)", name: "date", widget: "string" }
               - { label: "Time", name: "time", widget: "string", required: false }
               - { label: "Venue", name: "venue", widget: "string", required: false }
               - { label: "City", name: "city", widget: "string", required: false }
@@ -28,7 +35,7 @@ collections:
               - { label: "Age limit", name: "age", widget: "string", required: false }
               - { label: "Lineup", name: "lineup", widget: "string", required: false }
               - { label: "Ticket link URL", name: "ticket_url", widget: "string", required: false }
-              - { label: "Button label", name: "button_label", widget: "string", required: false, hint: "e.g. Tickets, Free RSVP" }
+              - { label: "Button label", name: "button_label", widget: "string", required: false }
               - { label: "Maps / directions URL", name: "maps_url", widget: "string", required: false }
               - { label: "Flyer image URL", name: "flyer", widget: "string", required: false }
               - { label: "Description", name: "desc", widget: "text", required: false }
@@ -46,7 +53,7 @@ collections:
             summary: "{{fields.name}}"
             fields:
               - { label: "Place name", name: "name", widget: "string" }
-              - { label: "Cuisine", name: "cuisine", widget: "string", required: false, hint: "Bakery, Middle Eastern, Coffee, Late-night, Comfort" }
+              - { label: "Cuisine", name: "cuisine", widget: "string", required: false }
               - { label: "Neighborhood", name: "hood", widget: "string", required: false }
               - { label: "Bread rating (1-5)", name: "rating", widget: "number", default: 5, value_type: "int", min: 1, max: 5, required: false }
               - { label: "Icon (emoji)", name: "icon", widget: "string", required: false }
@@ -62,12 +69,12 @@ collections:
           - label: "Products"
             name: "products"
             widget: "list"
-            summary: "{{fields.name}} — {{fields.price}}"
+            summary: "{{fields.name}} - {{fields.price}}"
             fields:
               - { label: "Product name", name: "name", widget: "string" }
-              - { label: "Price", name: "price", widget: "string", hint: "e.g. $28.00" }
-              - { label: "Category", name: "category", widget: "string", required: false, hint: "Apparel, Hats, Accessories, Drinkware" }
-              - { label: "Badge", name: "badge", widget: "string", required: false, hint: "e.g. Bestseller, New, Limited" }
+              - { label: "Price (e.g. $28.00)", name: "price", widget: "string" }
+              - { label: "Category", name: "category", widget: "string", required: false }
+              - { label: "Badge", name: "badge", widget: "string", required: false }
               - { label: "Icon (emoji)", name: "icon", widget: "string", required: false }
-              - { label: "Buy link URL", name: "buy_url", widget: "string", required: false, hint: "Where the Buy button sends shoppers" }
+              - { label: "Buy link URL", name: "buy_url", widget: "string", required: false }
               - { label: "Description", name: "desc", widget: "text", required: false }
