@@ -64,7 +64,7 @@ Commit the change.
 
 ## Editing content — the fields
 
-**Shows:** name, date (YYYY-MM-DD), time, venue, city, address, doors, age, lineup, ticket URL, button label, maps URL, flyer image URL, description. Upcoming vs. Past is decided automatically by date.
+**Shows:** name, date (YYYY-MM-DD), time, venue, city, address, doors, age, lineup, ticket URL, free RSVP URL, maps URL, flyer image URL, description. Upcoming vs. Past is decided automatically by date.
 
 **Shop:** name, price, category, badge, emoji icon, Buy link URL (where the Buy button sends people), description.
 

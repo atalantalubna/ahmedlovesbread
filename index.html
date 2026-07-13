@@ -257,7 +257,7 @@
     .merch-grid,.shop-grid,.eats-grid,.field.two{grid-template-columns:1fr}
     .gallery{grid-template-columns:repeat(2,1fr)}
     .show{grid-template-columns:80px 1fr;gap:14px}
-    .show .btn{grid-column:2}
+    .show-cta{grid-column:1 / -1;flex-direction:row;flex-wrap:wrap}
     .hero-stats{gap:18px}
     .band{padding:34px 22px}
   }
@@ -267,6 +267,7 @@
   #pastTitle{margin-top:44px}
   .show{cursor:pointer}
   .show .go{color:var(--gold-deep);font-weight:600;font-size:13px;white-space:nowrap}
+  .show-cta{display:flex;flex-direction:column;gap:8px}
   .show.past{opacity:.6}
   .empty{color:var(--muted);padding:18px 2px}
   .sd{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
@@ -648,7 +649,6 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
       <div class="sd">
         <div class="sd-flyer" id="sdFlyer">Show flyer</div>
         <div class="sd-body">
-          <span class="sd-date" id="sdDate">Date</span>
           <h1 id="sdName">Show</h1>
           <div class="venue" id="sdVenue">Venue</div>
           <div class="meta" id="sdCity">City</div>
@@ -662,6 +662,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
           <p id="sdDesc" style="color:var(--muted);margin-bottom:24px"></p>
           <div class="sd-actions">
             <a class="btn big" id="sdTicket" target="_blank" rel="noopener">Buy Tickets</a>
+            <a class="btn ghost big" id="sdRsvp" target="_blank" rel="noopener">Free RSVP</a>
           </div>
         </div>
       </div>
@@ -774,7 +775,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
     d.onclick=function(){openShow(sh.id);};
     d.innerHTML='<div class="date"><div class="m">'+f.m+'</div><div class="d">'+f.d+'</div></div>'+
       '<div class="info"><h3>'+esc(sh.name)+'</h3><div class="venue">'+esc([sh.venue,sh.city].filter(Boolean).join(' · '))+'</div>'+
-      (sh.time?'<span class="time">🕗 '+esc(sh.time)+'</span>':'')+'</div><div class="go">Get Tickets →</div>';
+      (sh.time?'<span class="time">🕗 '+esc(sh.time)+'</span>':'')+'</div><div class="show-cta">'+(sh.ticket_url?'<a class="btn" href="'+esc(sh.ticket_url)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">🎟 Buy Tickets</a>':'')+(sh.rsvp_url?'<a class="btn ghost" href="'+esc(sh.rsvp_url)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">✅ '+esc(sh.rsvp_label||'Free RSVP')+'</a>':'')+((!sh.ticket_url&&!sh.rsvp_url)?'<span class="go">Details →</span>':'')+'</div>';
     return d;
   }
   function renderTour(){
@@ -792,7 +793,6 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
   function openShow(id){
     var s=SHOWS.filter(function(x){return x.id==id;})[0];if(!s)return;
     document.getElementById('sdName').textContent=s.name;
-    document.getElementById('sdDate').textContent=fFull(s.date);
     document.getElementById('sdVenue').textContent=s.venue||s.name;
     document.getElementById('sdCity').textContent=s.city||'';
     document.getElementById('sdFull').textContent=fFull(s.date);
@@ -803,7 +803,10 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
     document.getElementById('sdDesc').textContent=s.desc||'';
     var t=document.getElementById('sdTicket');
     if(s.ticket_url){t.style.display='';t.href=s.ticket_url;t.textContent='🎟 Buy Tickets';}else{t.style.display='none';}
-    document.getElementById('sdFlyer').innerHTML=s.flyer?('<img src="'+s.flyer+'" alt="'+esc(s.name)+'" onerror="this.parentNode.innerHTML=\'🎤<br>'+esc(s.name).replace(/'/g,"")+'\'">'):('🎤<br>'+esc(s.name));
+    var rv=document.getElementById('sdRsvp');
+    if(rv){if(s.rsvp_url){rv.style.display='';rv.href=s.rsvp_url;rv.textContent='✅ '+(s.rsvp_label||'Free RSVP');}else{rv.style.display='none';}}
+    var SP=['assets/ahmed-hero.jpg','assets/g1.jpg','assets/g6.jpg','assets/g8.jpg'];var ph=SP[(s.id||0)%SP.length];
+    document.getElementById('sdFlyer').innerHTML=s.flyer?('<img src="'+s.flyer+'" alt="'+esc(s.name)+'" onerror="this.onerror=null;this.src=\''+ph+'\'">'):('<img src="'+ph+'" alt="Ahmed Al-Kadri">');
     go('show');
   }
   function renderAdmin(){
