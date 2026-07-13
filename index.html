@@ -305,20 +305,36 @@
   .admin-col{display:none}
   .admin-col.on{display:block}
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1997995277502292');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
 <header class="nav">
   <div class="wrap nav-inner">
     <div class="brand" onclick="go('home')">
-      <div class="mark">🍞</div>
+      <div class="mark">🎤</div>
       <b>Ahmed<span>LovesBread</span></b>
     </div>
     <nav class="links" id="navlinks">
       <a data-p="home" onclick="go('home')">Home</a>
       <a data-p="shop" onclick="go('shop')">Shop</a>
       <a data-p="tour" onclick="go('tour')">Tour Dates</a>
-      <a data-p="eats" onclick="go('eats')">Ahmed's Eats</a>
       <a data-p="connect" onclick="go('connect')">Book / Request</a>
     </nav>
     <div class="nav-cta">
@@ -334,8 +350,8 @@
     <div class="wrap hero-grid">
       <div>
         <span class="eyebrow">🎤 Yemeni-American Comedian · LA</span>
-        <h1>Comedy so good<br>it's practically <em>carb-loaded.</em></h1>
-        <p class="lead">Ahmed Al-Kadri turns immigrant-kid chaos, roommate anxiety, and an unreasonable love of bread into stand-up you'll actually quote later.</p>
+        <h1>Comedy so good<br>it's practically <em>criminal.</em></h1>
+        <p class="lead">Ahmed Al-Kadri turns immigrant-kid chaos and roommate anxiety into stand-up you'll actually quote later.</p>
         <div class="hero-cta">
           <button class="btn big" onclick="go('tour')">🎟 Catch a Live Show</button>
           <button class="btn ghost big" onclick="go('shop')">Shop the Merch</button>
@@ -343,12 +359,10 @@
         <div class="hero-stats">
           <div><b>1M+</b><span>Followers</span></div>
           <div><b>30+</b><span>Cities toured</span></div>
-          <div><b>1</b><span>Love: bread</span></div>
+          <div><b>LA</b><span>Home base</span></div>
         </div>
       </div>
       <div class="hero-photo">
-        <span class="float-bread fb1">🥖</span>
-        <span class="float-bread fb2">🥐</span>
         <img src="assets/ahmed-hero.jpg" alt="Ahmed Al-Kadri smiling">
         <div class="tag">📍 Live &amp; on tour — catch a show near you</div>
       </div>
@@ -370,13 +384,13 @@
           <p>Today Ahmed connects through funny, heartfelt stories about the little things you just have to laugh at. Off stage? Bike tours around LA, teaching improv at rehab centers, and writing far-too-serious Yelp reviews for restaurants near Hollywood.</p>
         </div>
         <aside class="about-card">
-          <h4>The quick loaf 🥖</h4>
+          <h4>The quick facts</h4>
           <div class="fact"><i>🌍</i><div><b>Roots</b>Yemeni-American, raised in Dallas</div></div>
           <div class="fact"><i>📍</i><div><b>Based in</b>Los Angeles, CA</div></div>
           <div class="fact"><i>🎭</i><div><b>Started</b>Improv, Dallas Comedy House, 2016</div></div>
           <div class="fact"><i>📱</i><div><b>Known for</b>The "Arab Roommate" series &amp; F-Boi Rehab</div></div>
           <div class="fact"><i>📺</i><div><b>Seen on</b>Fox's Love Connection, David Diamondhands</div></div>
-          <div class="fact"><i>🍞</i><div><b>Weakness</b>Bread. Always bread.</div></div>
+          <div class="fact"><i>🚲</i><div><b>Off stage</b>Bike tours &amp; teaching improv around LA</div></div>
         </aside>
       </div>
     </div>
@@ -415,7 +429,7 @@
       <div>
         <span class="script" style="font-size:24px">now streaming</span>
         <h2 style="font-size:36px;letter-spacing:-.6px;margin:4px 0 14px">My YouTube Special</h2>
-        <p style="color:var(--muted);font-size:17px;margin-bottom:22px">Full sets, sketches, and the bits that started it all. New drops regularly — hit subscribe so you don't miss a crumb.</p>
+        <p style="color:var(--muted);font-size:17px;margin-bottom:22px">Full sets, sketches, and the bits that started it all. New drops regularly — hit subscribe so you don't miss a thing.</p>
         <a class="btn gold big" href="https://www.youtube.com/channel/UCH0CWz6_Xkgo2WJgn63ym9Q" target="_blank">▶ Subscribe on YouTube</a>
       </div>
     </div>
@@ -425,8 +439,8 @@
     <div class="wrap">
       <div class="sec-head" style="display:flex;justify-content:space-between;align-items:end;max-width:none">
         <div>
-          <span class="script">wear the bread</span>
-          <h2>Bread-tastic Picks</h2>
+          <span class="script">the merch</span>
+          <h2>Featured Merch</h2>
         </div>
         <button class="btn ghost" onclick="go('shop')">Visit the Shop →</button>
       </div>
@@ -437,13 +451,12 @@
   <section>
     <div class="wrap">
       <div class="band">
-        <h2>Join the <span>bread-loving</span> squad</h2>
-        <p>Tour announcements, new merch drops, and dumb bread puns — straight to your inbox. No spam, just crumbs.</p>
-        <form class="nl-form" onsubmit="fakeSubmit(event,'You\'re in! Welcome to the squad. 🍞')">
+        <h2>Join the <span>mailing</span> list</h2>
+        <p>Tour announcements and new merch drops, straight to your inbox. No spam.</p>
+        <form class="nl-form" onsubmit="fakeSubmit(event,'You\'re in! Thanks for subscribing.')">
           <input type="email" placeholder="you@email.com" required>
           <button class="btn" type="submit">Sign me up</button>
         </form>
-        <div class="emoji-row">🥖 🥐 🍞 🥨 🥯</div>
       </div>
     </div>
   </section>
@@ -475,9 +488,9 @@
 <main id="shop" class="page">
   <div class="page-head">
     <div class="wrap">
-      <span class="script">merch that slaps (and toasts)</span>
-      <h1>The Bread Shop</h1>
-      <p>Soft tees, crusty hats, and totes worthy of a farmer's market. Wear your love of bread out loud.</p>
+      <span class="script">merch that slaps</span>
+      <h1>The Shop</h1>
+      <p>Soft tees, hats, and totes. Wear it out loud.</p>
     </div>
   </div>
   <section>
@@ -498,38 +511,11 @@
   </section>
 </main>
 
-<!-- EATS -->
-<main id="eats" class="page">
-  <div class="page-head">
-    <div class="wrap">
-      <span class="script">where I actually eat</span>
-      <h1>Bread &amp; Laughter in LA</h1>
-      <p>Ahmed's running list of favorite spots around Los Angeles &mdash; rated, of course, on the only scale that matters: bread.</p>
-    </div>
-  </div>
-  <section>
-    <div class="wrap">
-      <div class="shop-toolbar">
-        <div class="chips" id="eatChips">
-          <div class="chip on" data-cat="All">All</div>
-          <div class="chip" data-cat="Bakery">Bakeries</div>
-          <div class="chip" data-cat="Middle Eastern">Middle Eastern</div>
-          <div class="chip" data-cat="Coffee">Coffee</div>
-          <div class="chip" data-cat="Late-night">Late-night</div>
-        </div>
-        <div style="color:var(--muted);font-size:14px">Ahmed's picks</div>
-      </div>
-      <div class="eats-grid" id="eatsGrid"></div>
-      <p style="text-align:center;margin-top:30px;color:var(--muted);font-size:14px">Managed from the <a href="/admin/" style="color:var(--gold-deep);cursor:pointer;font-weight:600">admin page</a> &mdash; add or update places anytime.</p>
-    </div>
-  </section>
-</main>
-
 <!-- CONNECT -->
 <main id="connect" class="page">
   <div class="page-head">
     <div class="wrap">
-      <span class="script">let's make bread magic</span>
+      <span class="script">let's talk</span>
       <h1>Book Me · Request a City</h1>
       <p>Booking a show, or just begging me to come to your town? Pick a form below.</p>
     </div>
@@ -542,9 +528,9 @@
       </div>
       <div class="form-card">
         <div class="form-panel on" id="book">
-          <h3>Let's make bread magic 🍞</h3>
-          <p class="sub">Send a loaf of a message and let's plan something. For clubs, colleges, corporate, and private events.</p>
-          <form onsubmit="fakeSubmit(event,'Message sent! I\'ll be in touch soon. 🥖')">
+          <h3>Let's talk 👋</h3>
+          <p class="sub">Send a message and let's plan something. For clubs, colleges, corporate, and private events.</p>
+          <form onsubmit="fakeSubmit(event,'Message sent! I\'ll be in touch soon.')">
             <div class="field two">
               <div class="field"><label>Name *</label><input required placeholder="Your name"></div>
               <div class="field"><label>Email *</label><input type="email" required placeholder="you@email.com"></div>
@@ -559,7 +545,7 @@
         </div>
         <div class="form-panel" id="where">
           <h3>Tell me where to perform 📍</h3>
-          <p class="sub">Want me in your city? Drop your info and I'll add it to the "cities begging for bread" list.</p>
+          <p class="sub">Want me in your city? Drop your info and I'll add it to the list.</p>
           <form onsubmit="fakeSubmit(event,'Got it! Adding your city to the list. 🗺️')">
             <div class="field two">
               <div class="field"><label>Your name *</label><input required placeholder="Your name"></div>
@@ -639,9 +625,9 @@
         <div class="pdp-media"><div class="pdp-pic" id="pdpPic">👕</div></div>
         <div class="pdp-info">
           <div class="pdp-cat" id="pdpCat">Apparel</div>
-          <h1 id="pdpName">"Ahmed Loves Bread" Tee</h1>
+          <h1 id="pdpName">Logo Tee</h1>
           <div class="pdp-price" id="pdpPrice">$28.00</div>
-          <p class="pdp-desc">Soft, pre-shrunk cotton with a subtle bread-themed print. Unisex fit, built for both open mics and grocery runs. This is placeholder copy — real product details go here.</p>
+          <p class="pdp-desc">Soft, pre-shrunk cotton. Unisex fit. This is placeholder copy — real product details go here.</p>
           <div class="pdp-opt"><span>Size</span><div class="chips sizes"><div class="chip on">S</div><div class="chip">M</div><div class="chip">L</div><div class="chip">XL</div></div></div>
           <div class="pdp-actions">
             <a class="btn big" id="pdpBuy" target="_blank" rel="noopener">Buy</a>
@@ -687,8 +673,8 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="brand"><div class="mark">🍞</div><b>Ahmed<span>LovesBread</span></b></div>
-        <p>Yemeni-American comedian making the world a little less crumby — one heartfelt, carb-loaded joke at a time.</p>
+        <div class="brand"><div class="mark">🎤</div><b>Ahmed<span>LovesBread</span></b></div>
+        <p>Yemeni-American comedian based in LA — heartfelt, high-energy stand-up.</p>
         <div class="socials">
           <a href="https://www.instagram.com/ahmedlovesbread" target="_blank" title="Instagram">📷</a>
           <a href="https://www.facebook.com/ahmedlovesbread" target="_blank" title="Facebook">📘</a>
@@ -701,7 +687,6 @@
         <a onclick="go('home')">Home</a>
         <a onclick="go('shop')">Shop</a>
         <a onclick="go('tour')">Tour Dates</a>
-        <a onclick="go('eats')">Ahmed's Eats</a>
         <a onclick="go('connect')">Book / Request</a>
       </div>
       <div class="foot-col">
@@ -728,6 +713,7 @@
     document.getElementById(id).classList.add('show');
     document.querySelectorAll('#navlinks a').forEach(a=>a.classList.toggle('active',a.dataset.p===id));
     var d=document.getElementById('cartDrawer');if(d){d.classList.remove('open');document.getElementById('cartOverlay').classList.remove('open');}
+    if(window.fbq){if(window._fbInit){fbq('track','PageView');}else{window._fbInit=true;}}
     window.scrollTo({top:0,behavior:'instant'});
   }
   function toggleMenu(){
@@ -855,71 +841,14 @@
   function delShow(id){if(!confirm('Delete this show?'))return;SHOWS=SHOWS.filter(function(s){return s.id!=id;});persist();renderTour();renderAdmin();}
   function playYT(){var f=document.getElementById('ytFrame');if(f)f.innerHTML='<iframe src="https://www.youtube.com/embed/oD3NDWuDTS4?autoplay=1&rel=0" title="Ahmed Al-Kadri Full Special" allow="autoplay; encrypted-media" allowfullscreen style="width:100%;height:100%;border:0;display:block"></iframe>';}
   function initShows(){loadShows();renderTour();renderAdmin();}
-  // ---- Ahmed's Eats data + demo CMS ----
-  var DEFAULT_EATS=[
-    {id:1,name:"Your favorite bakery",cuisine:"Bakery",hood:"Neighborhood, LA",rating:5,icon:"\U0001F956",blurb:"Drop in the spot and the one-liner that sells it. Placeholder — send the real list and I'll fill it in."},
-    {id:2,name:"The mezze go-to",cuisine:"Middle Eastern",hood:"Neighborhood, LA",rating:4,icon:"\U0001F9C6",blurb:"Hummus, warm pita, the works. Add your review and a bread rating out of five loaves."},
-    {id:3,name:"Morning writing spot",cuisine:"Coffee",hood:"Neighborhood, LA",rating:5,icon:"☕",blurb:"Where the jokes get written. Great pastry case, better people-watching."},
-    {id:4,name:"Post-show tacos",cuisine:"Late-night",hood:"Neighborhood, LA",rating:3,icon:"\U0001F32E",blurb:"The 11pm reward after a set. Swap in the real name and your take."},
-    {id:5,name:"Rainy-day noodles",cuisine:"Comfort",hood:"Neighborhood, LA",rating:4,icon:"\U0001F35C",blurb:"Not bread, but we allow it. Add the spot and why it makes the list."},
-    {id:6,name:"The croissant dealer",cuisine:"Bakery",hood:"Neighborhood, LA",rating:5,icon:"\U0001F950",blurb:"Flaky, buttery, worth the drive. Placeholder — real recommendations go here."}
-  ];
-  var EATS=[];var eatFilter='All';
-  function loadEats(){try{var s=localStorage.getItem('alb_eats');EATS=s?JSON.parse(s):DEFAULT_EATS.slice();}catch(e){EATS=DEFAULT_EATS.slice();}}
-  function persistEats(){try{localStorage.setItem('alb_eats',JSON.stringify(EATS));}catch(e){}}
-  function resetEats(){EATS=DEFAULT_EATS.slice();persistEats();renderEats(eatFilter);renderEatAdmin();alert('Eats reset to defaults.');}
-  function loaves(n){n=parseInt(n)||0;if(n<1)n=1;if(n>5)n=5;var s='';for(var i=0;i<n;i++){s+='\U0001F35E';}return s;}
-  function eatCard(e){
-    var d=document.createElement('div');d.className='eat';
-    d.innerHTML='<div class="top">'+esc(e.icon||'\U0001F37D')+'<span class="cuisine">'+esc(e.cuisine||'Food')+'</span></div>'+
-      '<div class="body"><h4>'+esc(e.name)+'</h4><div class="hood">'+esc(e.hood||'')+'</div>'+
-      '<p>'+esc(e.blurb||'')+'</p><div class="rate">'+loaves(e.rating)+' <b>Bread rating</b></div></div>';
-    return d;
-  }
-  function renderEats(filter){
-    if(filter!==undefined)eatFilter=filter;
-    var g=document.getElementById('eatsGrid');if(!g)return;g.innerHTML='';
-    var list=EATS.filter(function(e){return eatFilter==='All'||(e.cuisine||'')===eatFilter;});
-    if(!list.length){g.innerHTML='<div class="empty">No places in this category yet.</div>';return;}
-    list.forEach(function(e){g.appendChild(eatCard(e));});
-  }
-  function renderEatAdmin(){
-    var list=document.getElementById('eatAdminList');if(!list)return;
-    document.getElementById('eatCount').textContent=EATS.length;list.innerHTML='';
-    EATS.forEach(function(e){
-      var row=document.createElement('div');row.className='arow';
-      row.innerHTML='<div class="ad">'+esc(e.icon||'\U0001F37D')+'</div><div class="an">'+esc(e.name)+'<span>'+esc(e.cuisine||'')+' · '+esc(e.hood||'')+'</span></div>';
-      var ed=document.createElement('button');ed.textContent='Edit';ed.onclick=function(){editEat(e.id);};
-      var de=document.createElement('button');de.className='del';de.textContent='Delete';de.onclick=function(){delEat(e.id);};
-      row.appendChild(ed);row.appendChild(de);list.appendChild(row);
-    });
-  }
-  function editEat(id){
-    var e=EATS.filter(function(x){return x.id==id;})[0];if(!e)return;
-    document.getElementById('eId').value=e.id;document.getElementById('eName').value=e.name||'';
-    document.getElementById('eCuisine').value=e.cuisine||'';document.getElementById('eHood').value=e.hood||'';
-    document.getElementById('eRating').value=e.rating||'';document.getElementById('eIcon').value=e.icon||'';
-    document.getElementById('eBlurb').value=e.blurb||'';
-    document.getElementById('eFormTitle').textContent='Edit place';window.scrollTo({top:0,behavior:'smooth'});
-  }
-  function clearEatForm(){document.getElementById('eatForm').reset();document.getElementById('eId').value='';document.getElementById('eFormTitle').textContent='Add a place';}
-  function saveEat(ev){
-    ev.preventDefault();var id=document.getElementById('eId').value;
-    var obj={name:document.getElementById('eName').value,cuisine:document.getElementById('eCuisine').value,hood:document.getElementById('eHood').value,rating:document.getElementById('eRating').value,icon:document.getElementById('eIcon').value,blurb:document.getElementById('eBlurb').value};
-    if(id){EATS=EATS.map(function(e){return e.id==id?Object.assign(e,obj):e;});}else{obj.id=Date.now();EATS.push(obj);}
-    persistEats();renderEats(eatFilter);renderEatAdmin();clearEatForm();alert('Saved! Ahmed\'s Eats is updated.');
-  }
-  function delEat(id){if(!confirm('Delete this place?'))return;EATS=EATS.filter(function(e){return e.id!=id;});persistEats();renderEats(eatFilter);renderEatAdmin();}
-  function adminTab(el,id){el.parentElement.querySelectorAll('.form-tab').forEach(function(t){t.classList.remove('on');});el.classList.add('on');document.querySelectorAll('.admin-col').forEach(function(c){c.classList.remove('on');});document.getElementById(id).classList.add('on');}
-  function initEats(){loadEats();renderEats('All');renderEatAdmin();document.querySelectorAll('#eatChips .chip').forEach(function(c){c.addEventListener('click',function(){renderEats(c.getAttribute('data-cat'));});});}
   // ---- Shop products + demo CMS ----
   var DEFAULT_PRODUCTS=[
-    {id:1,name:'"Ahmed Loves Bread" Tee',price:'$28.00',category:'Apparel',badge:'Bestseller',icon:'\U0001F455',desc:'Soft, pre-shrunk cotton with a subtle bread print. Unisex fit.'},
-    {id:2,name:'Crusty Dad Hat',price:'$25.00',category:'Hats',badge:'',icon:'\U0001F9E2',desc:'Structured cotton dad hat with an embroidered loaf.'},
-    {id:3,name:'Loaf Life Canvas Tote',price:'$18.00',category:'Accessories',badge:'New',icon:'\U0001F9F4',desc:'Heavy canvas tote, farmers-market approved.'},
-    {id:4,name:'Toast Mode Mug',price:'$16.00',category:'Drinkware',badge:'',icon:'☕',desc:'11oz ceramic mug for your morning carbs.'},
-    {id:5,name:'Warm & Toasty Socks',price:'$14.00',category:'Apparel',badge:'',icon:'\U0001F9E6',desc:'Cozy crew socks with tiny toast.'},
-    {id:6,name:'Enamel Bread Pin',price:'$10.00',category:'Accessories',badge:'Limited',icon:'\U0001F397️',desc:'Hard enamel loaf pin for your tote or jacket.'}
+    {id:1,name:'Logo Tee',price:'$28.00',category:'Apparel',badge:'Bestseller',icon:'👕',desc:'Soft, pre-shrunk cotton. Unisex fit.'},
+    {id:2,name:'Dad Hat',price:'$25.00',category:'Hats',badge:'',icon:'🧢',desc:'Structured cotton dad hat with embroidered logo.'},
+    {id:3,name:'Canvas Tote',price:'$18.00',category:'Accessories',badge:'New',icon:'🧴',desc:'Heavy canvas tote for everyday carry.'},
+    {id:4,name:'Ceramic Mug',price:'$16.00',category:'Drinkware',badge:'',icon:'☕',desc:'11oz ceramic mug.'},
+    {id:5,name:'Crew Socks',price:'$14.00',category:'Apparel',badge:'',icon:'🧦',desc:'Cozy cotton crew socks.'},
+    {id:6,name:'Enamel Pin',price:'$10.00',category:'Accessories',badge:'Limited',icon:'🎗️',desc:'Hard enamel pin for your tote or jacket.'}
   ];
   var PRODUCTS=[];var prodFilter='All';
   function loadProducts(){try{var s=localStorage.getItem('alb_products');PRODUCTS=s?JSON.parse(s):DEFAULT_PRODUCTS.slice();}catch(e){PRODUCTS=DEFAULT_PRODUCTS.slice();}}
@@ -973,11 +902,10 @@
   function initShop(){loadProducts();renderShop('All');renderMerch();renderProdAdmin();document.querySelectorAll('#shopChips .chip').forEach(function(c){c.addEventListener('click',function(){renderShop(c.getAttribute('data-cat'));});});}
   function getData(url,key,fb){return fetch(url).then(function(r){return r.ok?r.json():null;}).then(function(j){return (j&&j[key]&&j[key].length)?j[key]:fb;}).catch(function(){return fb;});}
   function boot(){
-    Promise.all([getData('data/shows.json','shows',DEFAULT_SHOWS),getData('data/eats.json','eats',DEFAULT_EATS),getData('data/products.json','products',DEFAULT_PRODUCTS)]).then(function(res){
-      SHOWS=res[0];EATS=res[1];PRODUCTS=res[2];
-      SHOWS.forEach(function(s,i){s.id=i;});EATS.forEach(function(e,i){e.id=i;});PRODUCTS.forEach(function(p,i){p.id=i;});
-      renderTour();renderEats('All');renderShop('All');renderMerch();
-      document.querySelectorAll('#eatChips .chip').forEach(function(c){c.addEventListener('click',function(){renderEats(c.getAttribute('data-cat'));});});
+    Promise.all([getData('data/shows.json','shows',DEFAULT_SHOWS),getData('data/products.json','products',DEFAULT_PRODUCTS)]).then(function(res){
+      SHOWS=res[0];PRODUCTS=res[1];
+      SHOWS.forEach(function(s,i){s.id=i;});PRODUCTS.forEach(function(p,i){p.id=i;});
+      renderTour();renderShop('All');renderMerch();
       document.querySelectorAll('#shopChips .chip').forEach(function(c){c.addEventListener('click',function(){renderShop(c.getAttribute('data-cat'));});});
     });
   }
