@@ -40,25 +40,6 @@ collections:
               - { label: "Flyer image URL", name: "flyer", widget: "string", required: false }
               - { label: "Description", name: "desc", widget: "text", required: false }
 
-  - name: eats
-    label: "Ahmed's Eats"
-    files:
-      - name: eats
-        label: "Restaurant Picks"
-        file: "data/eats.json"
-        fields:
-          - label: "Places"
-            name: "eats"
-            widget: "list"
-            summary: "{{fields.name}}"
-            fields:
-              - { label: "Place name", name: "name", widget: "string" }
-              - { label: "Cuisine", name: "cuisine", widget: "string", required: false }
-              - { label: "Neighborhood", name: "hood", widget: "string", required: false }
-              - { label: "Bread rating (1-5)", name: "rating", widget: "number", default: 5, value_type: "int", min: 1, max: 5, required: false }
-              - { label: "Icon (emoji)", name: "icon", widget: "string", required: false }
-              - { label: "Blurb / review", name: "blurb", widget: "text", required: false }
-
   - name: shop
     label: "Shop"
     files:
