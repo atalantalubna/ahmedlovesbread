@@ -9,10 +9,9 @@ index.html               The whole site (one page; nav switches sections)
 assets/                  Ahmed's photos (hero + gallery)
 assets/uploads/          Where CMS-uploaded images land
 data/shows.json          Tour shows      <- edited in the CMS
-data/eats.json           Ahmed's Eats    <- edited in the CMS
 data/products.json       Shop products   <- edited in the CMS
 admin/index.html         The CMS app (Decap CMS)
-admin/config.yml         The 3 collections: Shows, Eats, Shop
+admin/config.yml         The 2 collections: Shows, Shop
 cms-oauth-worker/        Tiny Cloudflare Worker that logs the CMS into GitHub
 netlify.toml             Unused on Cloudflare — safe to ignore or delete
 ```
@@ -56,7 +55,7 @@ Commit the change.
 
 ### 6. Log in and edit
 - Go to `yoursite.pages.dev/admin/` -> **Login with GitHub**.
-- You'll see **Shows, Ahmed's Eats, Shop** — add/edit/delete, hit Publish, live site updates shortly.
+- You'll see **Shows, Shop** — add/edit/delete, hit Publish, live site updates shortly.
 
 ### 7. Point the domain (ahmedlovesbread.com)
 - Cloudflare Pages -> your project -> **Custom domains -> Set up a domain** -> `ahmedlovesbread.com`.
@@ -66,8 +65,6 @@ Commit the change.
 ## Editing content — the fields
 
 **Shows:** name, date (YYYY-MM-DD), time, venue, city, address, doors, age, lineup, ticket URL, button label, maps URL, flyer image URL, description. Upcoming vs. Past is decided automatically by date.
-
-**Ahmed's Eats:** name, cuisine, neighborhood, bread rating (1-5), emoji icon, blurb.
 
 **Shop:** name, price, category, badge, emoji icon, Buy link URL (where the Buy button sends people), description.
 
