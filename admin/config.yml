@@ -34,8 +34,9 @@ collections:
               - { label: "Doors", name: "doors", widget: "string", required: false }
               - { label: "Age limit", name: "age", widget: "string", required: false }
               - { label: "Lineup", name: "lineup", widget: "string", required: false }
-              - { label: "Ticket link URL", name: "ticket_url", widget: "string", required: false }
-              - { label: "Button label", name: "button_label", widget: "string", required: false }
+              - { label: "Ticket link URL (paid tickets)", name: "ticket_url", widget: "string", required: false }
+              - { label: "Free RSVP link URL", name: "rsvp_url", widget: "string", required: false }
+              - { label: "Free RSVP button label", name: "rsvp_label", widget: "string", required: false, hint: "Defaults to Free RSVP" }
               - { label: "Maps / directions URL", name: "maps_url", widget: "string", required: false }
               - { label: "Flyer image URL", name: "flyer", widget: "string", required: false }
               - { label: "Description", name: "desc", widget: "text", required: false }
