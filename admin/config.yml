@@ -38,7 +38,7 @@ collections:
               - { label: "Free RSVP link URL", name: "rsvp_url", widget: "string", required: false }
               - { label: "Free RSVP button label", name: "rsvp_label", widget: "string", required: false, hint: "Defaults to Free RSVP" }
               - { label: "Maps / directions URL", name: "maps_url", widget: "string", required: false }
-              - { label: "Flyer image URL", name: "flyer", widget: "string", required: false }
+              - { label: "Flyer image (upload, or paste a URL)", name: "flyer", widget: "image", required: false, choose_url: true }
               - { label: "Description", name: "desc", widget: "text", required: false }
 
   - name: shop
