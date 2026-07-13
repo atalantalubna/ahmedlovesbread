@@ -454,7 +454,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
       <div class="band">
         <h2>Join the <span>mailing</span> list</h2>
         <p>Tour announcements and new merch drops, straight to your inbox. No spam.</p>
-        <form class="nl-form" onsubmit="fakeSubmit(event,'You\'re in! Thanks for subscribing.')">
+        <form class="nl-form" onsubmit="if(window.fbq)fbq('track','Subscribe');fakeSubmit(event,'You\'re in! Thanks for subscribing.')">
           <input type="email" placeholder="you@email.com" required>
           <button class="btn" type="submit">Sign me up</button>
         </form>
@@ -531,7 +531,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
         <div class="form-panel on" id="book">
           <h3>Let's talk 👋</h3>
           <p class="sub">Send a message and let's plan something. For clubs, colleges, corporate, and private events.</p>
-          <form onsubmit="fakeSubmit(event,'Message sent! I\'ll be in touch soon.')">
+          <form onsubmit="if(window.fbq)fbq('track','Lead');fakeSubmit(event,'Message sent! I\'ll be in touch soon.')">
             <div class="field two">
               <div class="field"><label>Name *</label><input required placeholder="Your name"></div>
               <div class="field"><label>Email *</label><input type="email" required placeholder="you@email.com"></div>
@@ -547,7 +547,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
         <div class="form-panel" id="where">
           <h3>Tell me where to perform 📍</h3>
           <p class="sub">Want me in your city? Drop your info and I'll add it to the list.</p>
-          <form onsubmit="fakeSubmit(event,'Got it! Adding your city to the list. 🗺️')">
+          <form onsubmit="if(window.fbq)fbq('track','Lead');fakeSubmit(event,'Got it! Adding your city to the list. 🗺️')">
             <div class="field two">
               <div class="field"><label>Your name *</label><input required placeholder="Your name"></div>
               <div class="field"><label>Email *</label><input type="email" required placeholder="you@email.com"></div>
@@ -660,7 +660,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
           </ul>
           <p id="sdDesc" style="color:var(--muted);margin-bottom:24px"></p>
           <div class="sd-actions">
-            <a class="btn big" id="sdTicket" target="_blank" rel="noopener">Buy Tickets</a>
+            <a class="btn big" id="sdTicket" target="_blank" rel="noopener" onclick="ticketClick(event)">Buy Tickets</a>
             <a class="btn ghost big" id="sdRsvp" target="_blank" rel="noopener">Free RSVP</a>
           </div>
         </div>
@@ -708,6 +708,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
 
 
 <script>
+  function ticketClick(e){if(e&&e.stopPropagation)e.stopPropagation();if(window.fbq)fbq('track','InitiateCheckout');}
   function go(id){
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('show'));
     document.getElementById(id).classList.add('show');
@@ -774,7 +775,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
     d.onclick=function(){openShow(sh.id);};
     d.innerHTML='<div class="date"><div class="m">'+f.m+'</div><div class="d">'+f.d+'</div></div>'+
       '<div class="info"><h3>'+esc(sh.name)+'</h3><div class="venue">'+esc([sh.venue,sh.city].filter(Boolean).join(' · '))+'</div>'+
-      (sh.time?'<span class="time">🕗 '+esc(sh.time)+'</span>':'')+'</div><div class="show-cta">'+(sh.ticket_url?'<a class="btn" href="'+esc(sh.ticket_url)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">🎟 Buy Tickets</a>':'')+(sh.rsvp_url?'<a class="btn ghost" href="'+esc(sh.rsvp_url)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">✅ '+esc(sh.rsvp_label||'Free RSVP')+'</a>':'')+((!sh.ticket_url&&!sh.rsvp_url)?'<span class="go">Details →</span>':'')+'</div>';
+      (sh.time?'<span class="time">🕗 '+esc(sh.time)+'</span>':'')+'</div><div class="show-cta">'+(sh.ticket_url?'<a class="btn" href="'+esc(sh.ticket_url)+'" target="_blank" rel="noopener" onclick="ticketClick(event)">🎟 Buy Tickets</a>':'')+(sh.rsvp_url?'<a class="btn ghost" href="'+esc(sh.rsvp_url)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">✅ '+esc(sh.rsvp_label||'Free RSVP')+'</a>':'')+((!sh.ticket_url&&!sh.rsvp_url)?'<span class="go">Details →</span>':'')+'</div>';
     return d;
   }
   function renderTour(){
