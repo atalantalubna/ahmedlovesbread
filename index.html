@@ -797,7 +797,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
     document.getElementById('sdCity').textContent=s.city||'';
     document.getElementById('sdFull').textContent=fFull(s.date);
     document.getElementById('sdTime').textContent=(s.time||'Time TBA')+(s.doors?(' · Doors '+s.doors):'');
-    setRow('sdLocRow',[s.venue,(s.address||s.city)].filter(Boolean).join(' — '));
+    setRow('sdLocRow',s.address||'');
     setRow('sdAgeRow',s.age?('Ages '+s.age):'');
     setRow('sdLineupRow',s.lineup?('Lineup: '+s.lineup):'');
     document.getElementById('sdDesc').textContent=s.desc||'';
