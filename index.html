@@ -793,7 +793,8 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
   function openShow(id){
     var s=SHOWS.filter(function(x){return x.id==id;})[0];if(!s)return;
     document.getElementById('sdName').textContent=s.name;
-    document.getElementById('sdVenue').textContent=s.venue||s.name;
+    var vEl=document.getElementById('sdVenue');
+    if(s.venue&&(s.name||'').indexOf(s.venue)===-1){vEl.style.display='';vEl.textContent=s.venue;}else{vEl.style.display='none';}
     document.getElementById('sdCity').textContent=s.city||'';
     document.getElementById('sdFull').textContent=fFull(s.date);
     document.getElementById('sdTime').textContent=(s.time||'Time TBA')+(s.doors?(' · Doors '+s.doors):'');
@@ -805,7 +806,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
     if(s.ticket_url){t.style.display='';t.href=s.ticket_url;t.textContent='🎟 Buy Tickets';}else{t.style.display='none';}
     var rv=document.getElementById('sdRsvp');
     if(rv){if(s.rsvp_url){rv.style.display='';rv.href=s.rsvp_url;rv.textContent='✅ '+(s.rsvp_label||'Free RSVP');}else{rv.style.display='none';}}
-    var SP=['assets/ahmed-hero.jpg','assets/g1.jpg','assets/g6.jpg','assets/g8.jpg'];var ph=SP[(s.id||0)%SP.length];
+    var SP=['assets/ahmed-hero.jpg','assets/show1.jpg','assets/show2.jpg','assets/show3.jpg','assets/show4.jpg','assets/show5.jpg'];var ph=SP[(s.id||0)%SP.length];
     document.getElementById('sdFlyer').innerHTML=s.flyer?('<img src="'+s.flyer+'" alt="'+esc(s.name)+'" onerror="this.onerror=null;this.src=\''+ph+'\'">'):('<img src="'+ph+'" alt="Ahmed Al-Kadri">');
     go('show');
   }
