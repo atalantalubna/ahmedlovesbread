@@ -280,11 +280,8 @@
   .sd-info{list-style:none;margin:0 0 26px;padding:0}
   .sd-info li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
   .sd-info li i{font-style:normal;font-size:18px;width:24px}
-  .sd-loc{display:block;text-decoration:none;color:inherit;cursor:pointer}
-  .sd-loc .v{display:block;font-size:18px;font-weight:600;color:var(--ink)}
-  .sd-loc .c{display:block;font-size:15px;color:var(--muted);margin-top:2px}
-  .sd-loc:hover .v{color:var(--gold-deep);text-decoration:underline}
-  .sd-loc:hover .c{color:var(--gold-deep)}
+  .sd-loc{text-decoration:none;color:var(--ink);cursor:pointer;font-size:18px;font-weight:600}
+  .sd-loc:hover{color:var(--gold-deep);text-decoration:underline}
   .sd-actions{display:flex;gap:12px;flex-wrap:wrap}
   .admin-wrap{max-width:960px;margin:0 auto}
   .admin-cols{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
@@ -656,9 +653,9 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
         <div class="sd-body">
           <h1 id="sdName">Show</h1>
           <ul class="sd-info">
-            <li id="sdLocRow"><i>&#128205;</i><a id="sdMap" class="sd-loc" target="_blank" rel="noopener"><span class="v" id="sdVenueLine"></span><span class="c" id="sdCityLine"></span></a></li>
+            <li id="sdLocRow"><i>&#128205;</i><a id="sdMap" class="sd-loc" target="_blank" rel="noopener"><span id="sdLocText"></span></a></li>
             <li><i>&#128197;</i><div id="sdFull">Date</div></li>
-            <li><i>&#128367;</i><div id="sdTime">Time</div></li>
+            <li><i>&#128336;</i><div id="sdTime">Time</div></li>
             <li id="sdAgeRow"><i>&#127903;</i><div id="sdAge"></div></li>
             <li id="sdLineupRow"><i>&#127908;</i><div id="sdLineup"></div></li>
           </ul>
@@ -797,13 +794,10 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
   function openShow(id){
     var s=SHOWS.filter(function(x){return x.id==id;})[0];if(!s)return;
     document.getElementById('sdName').textContent=s.name;
-    var locRow=document.getElementById('sdLocRow'),vLine=document.getElementById('sdVenueLine'),cLine=document.getElementById('sdCityLine'),mapEl=document.getElementById('sdMap');
-    if(s.venue||s.city){
-      locRow.style.display='';
-      if(s.venue){vLine.style.display='';vLine.textContent=s.venue;}else{vLine.style.display='none';}
-      if(s.city){cLine.style.display='';cLine.textContent=s.city;}else{cLine.style.display='none';}
-      mapEl.href=s.maps_url||('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(((s.venue||'')+' '+(s.city||'')).trim()));
-    }else{locRow.style.display='none';}
+    var locRow=document.getElementById('sdLocRow'),locText=document.getElementById('sdLocText'),mapEl=document.getElementById('sdMap');
+    var parts=[];if(s.venue)parts.push(s.venue);if(s.city)parts.push(s.city);
+    if(parts.length){locRow.style.display='';locText.textContent=parts.join(', ');mapEl.href=s.maps_url||('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(((s.venue||'')+' '+(s.city||'')).trim()));}
+    else{locRow.style.display='none';}
     document.getElementById('sdFull').textContent=fFull(s.date);
     document.getElementById('sdTime').textContent=(s.time||'Time TBA')+(s.doors?(' · Doors '+s.doors):'');
     setRow('sdAgeRow',s.age?('Ages '+s.age):'');
