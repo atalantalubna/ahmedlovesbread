@@ -133,14 +133,14 @@
   .page-head p{color:var(--muted);margin-top:12px;font-size:18px;max-width:34em;margin-inline:auto}
 
   .tour-list{display:flex;flex-direction:column;gap:14px;max-width:860px;margin:0 auto}
-  .show{display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px 26px;transition:.2s}
-  .show:hover{border-color:var(--gold);box-shadow:var(--shadow);transform:translateY(-2px)}
-  .show .date{text-align:center;border-right:1px solid var(--line-2);padding-right:20px}
-  .show .date .m{font-family:'Fraunces';font-weight:700;color:var(--gold-deep);text-transform:uppercase;font-size:14px;letter-spacing:.05em}
-  .show .date .d{font-family:'Fraunces';font-weight:900;font-size:32px;line-height:1}
-  .show .info h3{font-size:21px;letter-spacing:-.3px}
-  .show .info .venue{color:var(--muted);font-size:15px;margin-top:3px}
-  .show .info .time{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:600;color:var(--gold-deep);background:rgba(207,144,38,.13);border:1px solid rgba(207,144,38,.25);padding:3px 10px;border-radius:999px}
+  .tour-list .show{display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px 26px;transition:.2s}
+  .tour-list .show:hover{border-color:var(--gold);box-shadow:var(--shadow);transform:translateY(-2px)}
+  .tour-list .show .date{text-align:center;border-right:1px solid var(--line-2);padding-right:20px}
+  .tour-list .show .date .m{font-family:'Fraunces';font-weight:700;color:var(--gold-deep);text-transform:uppercase;font-size:14px;letter-spacing:.05em}
+  .tour-list .show .date .d{font-family:'Fraunces';font-weight:900;font-size:32px;line-height:1}
+  .tour-list .show .info h3{font-size:21px;letter-spacing:-.3px}
+  .tour-list .show .info .venue{color:var(--muted);font-size:15px;margin-top:3px}
+  .tour-list .show .info .time{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:600;color:var(--gold-deep);background:rgba(207,144,38,.13);border:1px solid rgba(207,144,38,.25);padding:3px 10px;border-radius:999px}
 
   .shop-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px;flex-wrap:wrap}
   .chips{display:flex;gap:8px;flex-wrap:wrap}
@@ -256,7 +256,7 @@
   @media(max-width:560px){
     .merch-grid,.shop-grid,.eats-grid,.field.two{grid-template-columns:1fr}
     .gallery{grid-template-columns:repeat(2,1fr)}
-    .show{grid-template-columns:80px 1fr;gap:14px}
+    .tour-list .show{grid-template-columns:80px 1fr;gap:14px}
     .show-cta{grid-column:1 / -1;flex-direction:row;flex-wrap:wrap}
     .hero-stats{gap:18px}
     .band{padding:34px 22px}
@@ -265,10 +265,10 @@
   /* dynamic shows + detail + admin */
   .tour-sec-title{font-family:'Fraunces';font-weight:700;font-size:22px;margin:0 0 16px;letter-spacing:-.3px;color:var(--ink)}
   #pastTitle{margin-top:44px}
-  .show{cursor:pointer}
-  .show .go{color:var(--gold-deep);font-weight:600;font-size:13px;white-space:nowrap}
+  .tour-list .show{cursor:pointer}
+  .tour-list .show .go{color:var(--gold-deep);font-weight:600;font-size:13px;white-space:nowrap}
   .show-cta{display:flex;flex-direction:column;gap:8px}
-  .show.past{opacity:.6}
+  .tour-list .show.past{opacity:.6}
   .empty{color:var(--muted);padding:18px 2px}
   .sd{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
   .sd-flyer{aspect-ratio:4/5;overflow:hidden;border-radius:14px;background:var(--bg-2);display:grid;place-items:center;color:var(--muted);text-align:center;font-family:'Fraunces';font-size:20px}
@@ -280,6 +280,8 @@
   .sd-info{list-style:none;margin:0 0 26px;padding:0}
   .sd-info li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
   .sd-info li i{font-style:normal;font-size:18px;width:24px}
+  .sd-dir{color:var(--gold-deep);font-weight:600;white-space:nowrap;text-decoration:none}
+  .sd-dir:hover{text-decoration:underline}
   .sd-actions{display:flex;gap:12px;flex-wrap:wrap}
   .admin-wrap{max-width:960px;margin:0 auto}
   .admin-cols{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
@@ -650,9 +652,8 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
         <div class="sd-flyer" id="sdFlyer">Show flyer</div>
         <div class="sd-body">
           <h1 id="sdName">Show</h1>
-          <div class="venue" id="sdVenue">Venue</div>
-          <div class="meta" id="sdCity">City</div>
           <ul class="sd-info">
+            <li id="sdLocRow"><i>&#128205;</i><div><span id="sdLoc"></span><a id="sdMap" class="sd-dir" target="_blank" rel="noopener"> &middot; Get directions &rarr;</a></div></li>
             <li><i>&#128197;</i><div id="sdFull">Date</div></li>
             <li><i>&#128367;</i><div id="sdTime">Time</div></li>
             <li id="sdAgeRow"><i>&#127903;</i><div id="sdAge"></div></li>
@@ -793,9 +794,13 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
   function openShow(id){
     var s=SHOWS.filter(function(x){return x.id==id;})[0];if(!s)return;
     document.getElementById('sdName').textContent=s.name;
-    var vEl=document.getElementById('sdVenue');
-    if(s.venue&&(s.name||'').indexOf(s.venue)===-1){vEl.style.display='';vEl.textContent=s.venue;}else{vEl.style.display='none';}
-    document.getElementById('sdCity').textContent=s.city||'';
+    var locParts=[];
+    if(s.venue&&(s.name||'').indexOf(s.venue)===-1)locParts.push(s.venue);
+    if(s.city)locParts.push(s.city);
+    var locText=locParts.join(', ');
+    var locRow=document.getElementById('sdLocRow'),locEl=document.getElementById('sdLoc'),mapEl=document.getElementById('sdMap');
+    if(locText){locRow.style.display='';locEl.textContent=locText;mapEl.style.display='';mapEl.href=s.maps_url||('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(((s.venue||'')+' '+(s.city||'')).trim()));}
+    else{locRow.style.display='none';}
     document.getElementById('sdFull').textContent=fFull(s.date);
     document.getElementById('sdTime').textContent=(s.time||'Time TBA')+(s.doors?(' · Doors '+s.doors):'');
     setRow('sdAgeRow',s.age?('Ages '+s.age):'');
