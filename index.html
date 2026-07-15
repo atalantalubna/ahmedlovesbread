@@ -882,7 +882,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
   function loadProducts(){try{var s=localStorage.getItem('alb_products');PRODUCTS=s?JSON.parse(s):DEFAULT_PRODUCTS.slice();}catch(e){PRODUCTS=DEFAULT_PRODUCTS.slice();}}
   function persistProducts(){try{localStorage.setItem('alb_products',JSON.stringify(PRODUCTS));}catch(e){}}
   function resetProducts(){PRODUCTS=DEFAULT_PRODUCTS.slice();persistProducts();renderShop(prodFilter);renderMerch();renderProdAdmin();alert('Shop reset to defaults.');}
-  var SNIPFEED="/data/snipcart-feed.json";
+  var SNIPFEED="/api/snipcart-feed";
   function slugify(s){return (s||'').toString().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');}
   function priceNum(s){return parseFloat(String(s).replace(/[^0-9.]/g,''))||0;}
   function escA(s){return esc(s).replace(/"/g,'&quot;');}
