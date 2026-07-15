@@ -60,7 +60,7 @@
   @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
   .hero{position:relative;overflow:hidden;background:radial-gradient(1000px 520px at 84% -10%,rgba(207,144,38,.2),transparent 60%),linear-gradient(180deg,var(--paper),var(--bg))}
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding:60px 0 72px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding:60px 24px 72px}
   .eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);background:rgba(207,144,38,.12);border:1px solid rgba(207,144,38,.28);padding:7px 14px;border-radius:999px;margin-bottom:22px}
   .hero h1{font-size:clamp(44px,6vw,76px);letter-spacing:-1.5px;font-weight:900}
   .hero h1 em{font-style:italic;color:var(--gold-deep)}
@@ -253,6 +253,9 @@
     .menu-toggle{display:block}
     .about-card{position:static}
   }
+  @media(max-width:720px){
+    .foot-grid{grid-template-columns:1fr 1fr;gap:28px 34px}
+  }
   @media(max-width:560px){
     .merch-grid,.shop-grid,.eats-grid,.field.two{grid-template-columns:1fr}
     .gallery{grid-template-columns:repeat(2,1fr)}
@@ -260,6 +263,10 @@
     .show-cta{grid-column:1 / -1;flex-direction:row;flex-wrap:wrap}
     .hero-stats{gap:18px}
     .band{padding:34px 22px}
+    .foot-grid{grid-template-columns:1fr;gap:24px}
+    .nav-cta .btn{padding:9px 15px;font-size:13.5px}
+    .brand .mark{width:34px;height:34px;font-size:18px}
+    .brand b{font-size:18px}
   }
 
   /* dynamic shows + detail + admin */
@@ -325,6 +332,9 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+  <link rel="preconnect" href="https://app.snipcart.com">
+  <link rel="preconnect" href="https://cdn.snipcart.com">
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css">
 </head>
 <body>
 
@@ -341,6 +351,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
       <a data-p="connect" onclick="go('connect')">Book / Request</a>
     </nav>
     <div class="nav-cta">
+      <button class="cart snipcart-checkout" aria-label="Cart">&#128722;<span class="snipcart-items-count">0</span></button>
       <button class="btn" onclick="go('tour')">See Shows</button>
       <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     </div>
@@ -404,18 +415,18 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
       <div class="sec-head">
         <span class="script">on stage &amp; being silly</span>
         <h2>Photos of me doing the thing</h2>
-        <p>Studio shots for now — swapping in live performance photos here soon.</p>
+        <p>A few recent nights on stage.</p>
       </div>
       <div class="gallery">
-        <div class="shot tall"><img src="assets/g1.jpg" alt="Ahmed"></div>
-        <div class="shot"><img src="assets/g2.jpg" alt="Ahmed pointing"></div>
-        <div class="shot"><img src="assets/g3.jpg" alt="Ahmed smiling"></div>
-        <div class="shot"><img src="assets/g4.jpg" alt="Ahmed being silly"></div>
-        <div class="shot"><img src="assets/g5.jpg" alt="Ahmed laughing"></div>
-        <div class="shot tall"><img src="assets/g6.jpg" alt="Ahmed"></div>
-        <div class="shot"><img src="assets/g7.jpg" alt="Ahmed in hoodie"></div>
-        <div class="shot"><img src="assets/g8.jpg" alt="Ahmed smiling"></div>
-        <div class="shot"><img src="assets/g9.jpg" alt="Ahmed"></div>
+        <div class="shot tall"><img src="assets/g1.jpg" alt="Ahmed Al-Kadri performing live"></div>
+        <div class="shot"><img src="assets/g2.jpg" alt="Ahmed Al-Kadri on stage"></div>
+        <div class="shot"><img src="assets/g3.jpg" alt="Ahmed Al-Kadri at the mic"></div>
+        <div class="shot"><img src="assets/g4.jpg" alt="Ahmed Al-Kadri performing"></div>
+        <div class="shot"><img src="assets/g5.jpg" alt="Ahmed Al-Kadri on stage"></div>
+        <div class="shot tall"><img src="assets/g6.jpg" alt="Ahmed Al-Kadri performing live"></div>
+        <div class="shot"><img src="assets/g7.jpg" alt="Ahmed Al-Kadri on stage"></div>
+        <div class="shot"><img src="assets/g8.jpg" alt="Ahmed Al-Kadri at the mic"></div>
+        <div class="shot"><img src="assets/g9.jpg" alt="Ahmed Al-Kadri live"></div>
       </div>
     </div>
   </section>
@@ -456,8 +467,10 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
       <div class="band">
         <h2>Join the <span>mailing</span> list</h2>
         <p>Tour announcements and new merch drops, straight to your inbox. No spam.</p>
-        <form class="nl-form" onsubmit="if(window.fbq)fbq('track','Subscribe');fakeSubmit(event,'You\'re in! Thanks for subscribing.')">
-          <input type="email" placeholder="you@email.com" required>
+        <form class="nl-form" action="https://formspree.io/f/xdaqkpkn" method="POST" onsubmit="if(window.fbq)fbq('track','Subscribe');sendForm(event,'You\'re in! Thanks for subscribing.')">
+          <input type="email" name="email" placeholder="you@email.com" required>
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="_subject" value="New mailing list signup (ahmedlovesbread.com)">
           <button class="btn" type="submit">Sign me up</button>
         </form>
       </div>
@@ -533,15 +546,17 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
         <div class="form-panel on" id="book">
           <h3>Let's talk 👋</h3>
           <p class="sub">Send a message and let's plan something. For clubs, colleges, corporate, and private events.</p>
-          <form onsubmit="if(window.fbq)fbq('track','Lead');fakeSubmit(event,'Message sent! I\'ll be in touch soon.')">
+          <form action="https://formspree.io/f/xaqrnlny" method="POST" onsubmit="if(window.fbq)fbq('track','Lead');sendForm(event,'Message sent! I\'ll be in touch soon.')">
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="_subject" value="New booking inquiry (ahmedlovesbread.com)">
             <div class="field two">
-              <div class="field"><label>Name *</label><input required placeholder="Your name"></div>
-              <div class="field"><label>Email *</label><input type="email" required placeholder="you@email.com"></div>
+              <div class="field"><label>Name *</label><input name="name" required placeholder="Your name"></div>
+              <div class="field"><label>Email *</label><input type="email" name="email" required placeholder="you@email.com"></div>
             </div>
             <div class="field"><label>Type of event</label>
-              <select><option>Comedy club</option><option>College / university</option><option>Corporate event</option><option>Private / other</option></select>
+              <select name="event_type"><option>Comedy club</option><option>College / university</option><option>Corporate event</option><option>Private / other</option></select>
             </div>
-            <div class="field"><label>Tell me about it</label><textarea rows="4" placeholder="Date, city, venue, vibe..."></textarea></div>
+            <div class="field"><label>Tell me about it</label><textarea name="message" rows="4" placeholder="Date, city, venue, vibe..."></textarea></div>
             <button class="btn big" type="submit" style="width:100%;justify-content:center">Send the message</button>
             <p class="recaptcha-note">Protected by reCAPTCHA — Google Privacy Policy &amp; Terms apply.</p>
           </form>
@@ -549,14 +564,16 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
         <div class="form-panel" id="where">
           <h3>Tell me where to perform 📍</h3>
           <p class="sub">Want me in your city? Drop your info and I'll add it to the list.</p>
-          <form onsubmit="if(window.fbq)fbq('track','Lead');fakeSubmit(event,'Got it! Adding your city to the list. 🗺️')">
+          <form action="https://formspree.io/f/mykrzbze" method="POST" onsubmit="if(window.fbq)fbq('track','Lead');sendForm(event,'Got it! Adding your city to the list. 🗺️')">
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="_subject" value="New where-to-perform request (ahmedlovesbread.com)">
             <div class="field two">
-              <div class="field"><label>Your name *</label><input required placeholder="Your name"></div>
-              <div class="field"><label>Email *</label><input type="email" required placeholder="you@email.com"></div>
+              <div class="field"><label>Your name *</label><input name="name" required placeholder="Your name"></div>
+              <div class="field"><label>Email *</label><input type="email" name="email" required placeholder="you@email.com"></div>
             </div>
             <div class="field two">
-              <div class="field"><label>City *</label><input required placeholder="City"></div>
-              <div class="field"><label>State / Country *</label><input required placeholder="State or country"></div>
+              <div class="field"><label>City *</label><input name="city" required placeholder="City"></div>
+              <div class="field"><label>State / Country *</label><input name="state_country" required placeholder="State or country"></div>
             </div>
             <button class="btn big" type="submit" style="width:100%;justify-content:center">Send it 🚀</button>
             <p class="recaptcha-note">Protected by reCAPTCHA — Google Privacy Policy &amp; Terms apply.</p>
@@ -633,7 +650,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
           <p class="pdp-desc">Soft, pre-shrunk cotton. Unisex fit. This is placeholder copy — real product details go here.</p>
           <div class="pdp-opt"><span>Size</span><div class="chips sizes"><div class="chip on">S</div><div class="chip">M</div><div class="chip">L</div><div class="chip">XL</div></div></div>
           <div class="pdp-actions">
-            <a class="btn big" id="pdpBuy" target="_blank" rel="noopener">Buy</a>
+            <button class="btn big snipcart-add-item" id="pdpBuy">Add to cart</button>
           </div>
           <div class="pdp-meta">🔒 Secure checkout · 🚚 Ships worldwide · ↩️ 30-day returns</div>
         </div>
@@ -732,6 +749,11 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
     card.querySelectorAll('.form-panel').forEach(p=>p.classList.remove('on'));
     card.querySelector('#'+id).classList.add('on');
   }
+  function sendForm(e,msg){e.preventDefault();var form=e.target;var btn=form.querySelector('[type=submit]');var orig=btn?btn.textContent:'';if(btn){btn.disabled=true;btn.textContent='Sending…';}
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(function(res){if(res.ok){alert(msg);form.reset();}else{return res.json().then(function(d){alert((d&&d.errors)?d.errors.map(function(x){return x.message;}).join(', '):'Sorry, something went wrong — please try again.');});}})
+      .catch(function(){alert('Network error — please check your connection and try again.');})
+      .finally(function(){if(btn){btn.disabled=false;btn.textContent=orig;}});}
   function fakeSubmit(e,msg){e.preventDefault();alert(msg);if(e.target&&typeof e.target.reset==='function')e.target.reset();}
   function addCart(btn){btn.textContent='Added ✓';btn.style.background='var(--gold)';btn.style.color='var(--charcoal)';
     const c=document.querySelector('.cart span');c.textContent=parseInt(c.textContent)+1;
@@ -746,7 +768,8 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
     document.getElementById('pdpPic').textContent=p.icon||'🛍';
     document.getElementById('pdpCat').textContent=p.category||'Merch';
     var dsc=document.querySelector('#product .pdp-desc');if(dsc)dsc.textContent=p.desc||'Placeholder product description.';
-    var b=document.getElementById('pdpBuy');if(b)b.href=p.buy_url||'#';
+    var b=document.getElementById('pdpBuy');
+    if(b){b.setAttribute('data-item-id',slugify(p.name));b.setAttribute('data-item-name',p.name);b.setAttribute('data-item-price',priceNum(p.price).toFixed(2));b.setAttribute('data-item-url',SNIPFEED);b.setAttribute('data-item-description',p.desc||'');b.onclick=function(){albAdd();};}
     go('product');
   }
   function addFromPdp(){const c=document.querySelector('.cart span');
@@ -859,12 +882,17 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
   function loadProducts(){try{var s=localStorage.getItem('alb_products');PRODUCTS=s?JSON.parse(s):DEFAULT_PRODUCTS.slice();}catch(e){PRODUCTS=DEFAULT_PRODUCTS.slice();}}
   function persistProducts(){try{localStorage.setItem('alb_products',JSON.stringify(PRODUCTS));}catch(e){}}
   function resetProducts(){PRODUCTS=DEFAULT_PRODUCTS.slice();persistProducts();renderShop(prodFilter);renderMerch();renderProdAdmin();alert('Shop reset to defaults.');}
+  var SNIPFEED="/data/snipcart-feed.json";
+  function slugify(s){return (s||'').toString().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');}
+  function priceNum(s){return parseFloat(String(s).replace(/[^0-9.]/g,''))||0;}
+  function escA(s){return esc(s).replace(/"/g,'&quot;');}
+  function albAdd(){if(window.fbq)fbq('track','AddToCart');}
   function productCard(p,preview){
     var d=document.createElement('div');d.className='product'+(preview?'':' lg');d.setAttribute('data-id',p.id);
     var badge=(!preview&&p.badge)?'<span class="badge">'+esc(p.badge)+'</span>':'';
     d.innerHTML='<div class="pic-wrap"><div class="pic">'+esc(p.icon||'\U0001F6CD')+'</div>'+badge+'</div>'+
       '<div class="info"><h4>'+esc(p.name)+'</h4><div class="price">'+esc(p.price)+'</div>'+
-      '<a class="btn add" href="'+(p.buy_url||'#')+'" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="justify-content:center">Buy</a></div>';
+      '<button class="btn add snipcart-add-item" data-item-id="'+slugify(p.name)+'" data-item-name="'+escA(p.name)+'" data-item-price="'+priceNum(p.price).toFixed(2)+'" data-item-url="'+SNIPFEED+'" data-item-description="'+escA(p.desc||'')+'" onclick="event.stopPropagation();albAdd()" style="justify-content:center">Add to cart</button></div>';
     d.addEventListener('click',function(e){if(e.target.closest('.add'))return;openProduct(p.id);});
     return d;
   }
@@ -917,5 +945,7 @@ src="https://www.facebook.com/tr?id=1997995277502292&ev=PageView&noscript=1"
   boot();
   go('home');
 </script>
+<div hidden id="snipcart" data-api-key="NGU0NzhhZGMtMzUxMS00NWY1LTk5OGYtYWJhMzZlMjliYmI1NjM5MTk2NjU3NzIwMDYwOTA3" data-config-modal-style="side" data-config-add-product-behavior="none"></div>
+<script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
 </body>
-</html>
+</htm
