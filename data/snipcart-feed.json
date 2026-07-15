@@ -1,0 +1,38 @@
+[
+  {
+    "id": "logo-tee",
+    "name": "Logo Tee",
+    "price": 28.0,
+    "url": "/data/snipcart-feed.json"
+  },
+  {
+    "id": "dad-hat",
+    "name": "Dad Hat",
+    "price": 25.0,
+    "url": "/data/snipcart-feed.json"
+  },
+  {
+    "id": "canvas-tote",
+    "name": "Canvas Tote",
+    "price": 18.0,
+    "url": "/data/snipcart-feed.json"
+  },
+  {
+    "id": "ceramic-mug",
+    "name": "Ceramic Mug",
+    "price": 16.0,
+    "url": "/data/snipcart-feed.json"
+  },
+  {
+    "id": "crew-socks",
+    "name": "Crew Socks",
+    "price": 14.0,
+    "url": "/data/snipcart-feed.json"
+  },
+  {
+    "id": "enamel-pin",
+    "name": "Enamel Pin",
+    "price": 10.0,
+    "url": "/data/snipcart-feed.json"
+  }
+]
